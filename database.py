@@ -1,5 +1,10 @@
-from bdConnect import connection
+import mysql.connector as connector
 
-mycursor = connection.cursor()
+config = {
+  'user': 'root',
+  'password': 'L@g0n1c0',
+  'host': 'localhost'
+}
 
-mycursor.execute("CREATE DATABASE mydatabase")
+db = connector.connect(**config)
+cursor = db.cursor()
