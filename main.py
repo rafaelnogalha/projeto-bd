@@ -29,18 +29,18 @@ def atualizar_usuario_senha(id_usuario, nova_senha):
 
   print("Senha atualizada para usuario com id {}".format(id_usuario))
 
-def deletar_usuario(id_usuario):
-  sql = ("DELETE FROM usuario WHERE id_usuario = %s")
-  cursor.execute(sql, (id_usuario,))
+def deletar_usuario(email):
+  sql = ("DELETE FROM usuario WHERE email = %s")
+  cursor.execute(sql, (email,))
   db.commit()
 
-  print("Usuario com id {} deletado".format(id_usuario))
+  print("Usuario com id {} deletado".format(email))
 
-# criar_usuario('Christopher', 'pAsSwOrD', 'christopher@gmail.com')
+#criar_usuario('Christopher', 'pAsSwOrD', 'christopher@gmail.com')
 # criar_usuario('John', 'doe123', 'john@gmail.com')
 # criar_usuario('Jane', 'hello123', 'jane@gmail.com')
 # criar_usuario('Joao', 'pAsSwOrD', 'christopher@gmail.com')
 # criar_usuario('Joao', 'pAsSwOrD', 'joao@gmail.com')
-# atualizar_usuario_senha(1, 'myNeWpAsSwOrD')
-# deletar_usuario(1)
+#atualizar_usuario_senha(1, 'myNeWpAsSwOrD')
+deletar_usuario('christopher@gmail.com')
 # selecionar_usuarios()

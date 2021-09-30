@@ -11,7 +11,7 @@ TABLES['usuario'] = (
     " `id_usuario` int(11) NOT NULL AUTO_INCREMENT,"
     " `nome` varchar(255) NOT NULL,"
     " `senha` varchar(255) NOT NULL,"
-    " `email` varchar(255) NOT NULL,"
+    " `email` varchar(255) NOT NULL UNIQUE,"
     " `criado` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,"
     "PRIMARY KEY (`id_usuario`),"
     "CONSTRAINT UC_usuario UNIQUE (email)"
