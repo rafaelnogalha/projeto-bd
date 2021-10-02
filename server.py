@@ -23,10 +23,13 @@ config = {
 db = connector.connect(**config)
 cursor = db.cursor()
 
-#app = Flask(__name__)
+app = Flask(__name__)
 #cnx = mysql.connector.connect(user='root', password = 'mysql12', host = '127.0.0.1', port = '3306', database = 'redesocial')
 #cursor = cnx.cursor()
 
+@app.route('/')
+def hello_world():
+    return 'Hello Tutorialspoint'
 
 class S(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -41,14 +44,15 @@ class S(BaseHTTPRequestHandler):
         # path. e.g., "http://127.0.0.1/<val>"
         i_slash = self.path.index('/')
         val = self.path[(i_slash + 1):]
-        criar_usuario("Pedro, senha, pedro@gmail.com")
+        #criar_usuario("Pedro, senha, pedro@gmail.com")
 
 
 def run(server_class=HTTPServer, handler_class=S, port=8080):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print('Starting httpd...')
-    criar_usuario("pedro", "senha", "pedro@gmail.com")
+    app.run()
+    #criar_usuario("pedro", "senha", "pedro@gmail.com")
     httpd.serve_forever()
 
 #@app.route('/')
@@ -57,21 +61,20 @@ def run(server_class=HTTPServer, handler_class=S, port=8080):
 #     cursor.execute("INSERT INTO usuario VALUES ('%s %s %s');" "pedro", "senha", "pedro@gmail.com")
 #     print("inseriu")
 
-def criar_usuario(nome, senha, email):
-  sql = ("INSERT INTO usuario(nome, senha, email) VALUES (%s, %s, %s)")
-  cursor.execute(sql, (nome, senha, email))
-  db.commit()
-  id_usuario = cursor.lastrowid
-  print("Usuario criado {}".format(id_usuario))
+# def criar_usuario(nome, senha, email):
+#   sql = ("INSERT INTO usuario(nome, senha, email) VALUES (%s, %s, %s)")
+#   cursor.execute(sql, (nome, senha, email))
+#   db.commit()
+#   id_usuario = cursor.lastrowid
+#   print("Usuario criado {}".format(id_usuario))
 
 if __name__ == "__main__":
     from sys import argv
 
     if len(argv) == 2:
         run(port=int(argv[1]))
+
     else:
         run()
-     
-def hello_world():
-    return 'Hello Tutorialspoint'
+
 
