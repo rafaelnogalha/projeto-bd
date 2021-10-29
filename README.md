@@ -1,6 +1,6 @@
 # projeto-bd
 
-### Para executar o programa basta inserir no prompt de comando os seguintes scripts:
+<p> Para executar o programa basta inserir no prompt de comando os seguintes scripts: </p>
 `python3 main.py`
-### ou 
+<p> ou </p>
 `flask run`
